@@ -35,6 +35,13 @@ CREATE TABLE `infoperso` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
+CREATE TABLE users 
+    -> (
+    ->   id_user int(11) PRIMARY KEY NOT NULL auto_increment,
+    ->   username varchar(45) NOT NULL ,
+    ->   password varchar(30) NOT NULL 
+    -> );
+INSERT INTO users values (null, 'wcs', 2701);
 --
 -- Dumping data for table `infoperso`
 --
