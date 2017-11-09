@@ -1,19 +1,20 @@
 table(id="products" border="1" width="90%")
 		tr
 			th #
-			th nom du produit 
-			th description
-			th ingrédients
-			th image
-			th catégories
-			th action
+			th Nom 
+			th Prenom
+			th Anniversaire
+			th Mail
+			th Numéro
+			th Adresse
+			th Arrondissement
 		each perso in infoperso
 			tr
 				td= perso.idinfoperso
-				td= perso.prenom
-				td= perso.nom  
-				td= perso.datenaissance
-				td= perso.ville
+				td= perso.nom
+				td= perso.prenom  
+				td= perso.anniversaire
+				td= perso.mail
+				td= perso.num
+				td= perso.place
 				td= perso.arrondissement
-				td= perso.email
-				td= perso.tel

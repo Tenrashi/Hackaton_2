@@ -8,38 +8,16 @@ const nodemailer = require('nodemailer');
 /* GET home page. */
 
 router.get('/index', function(req, res, next) {
-if (req.session.connect) {	
-
-  res.render('index', { title: 'Express' });
-  }
-  else {
-    res.render('login');
-  }
+  res.render('index');
 });
 
 
-// router.post('/index', function(req, res, next) {
-//   connection.query('insert into infoperso values(null, ?, ?, ?, ?, ?, ?, ?);',
-//   [req.body.nom, req.body.prenom, req.body.anniversaire, req.body.mail, req.body.num, req.body.place, req.body.arrondissement],
-//   function (error, results, fields) {
-// 				if (error){
-//             console.log(error);
-//         }else{
-//           res.redirect('/base');
-//         };
-//     });
-// });
-//   res.render('index');
-// });
-
 router.post('/index', function (req, res, next) {
 // Création d'article
-connection.query('INSERT INTO infoperso VALUES(NULL, ?, ?, ?, ?, ?, ?, ?);',
-[req.body.nom, req.body.prenom, req.body.anniversaire, req.body.mail, req.body.num, req.body.place, req.body.arrondissement],
-function (error, results, fields) {
-  console.log(req.body);
+connection.query('INSERT INTO infoperso VALUES (NULL, ?, ?, ?, ?, ?, ?, ?);', [req.body.nom, req.body.prenom, req.body.anniversaire, req.body.mail, req.body.num, req.body.place, req.body.arrondissement], function (error, results, fields) {
+  
     if (error) {
-        console.log(error);
+        throw error;
     } else {
       res.redirect('/base');
     };
