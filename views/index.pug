@@ -8,10 +8,12 @@ block content
       link(rel='stylesheet', href='style.css')
       title Wild Join
     body
-      input(type='text', name='prenom', placeholder='Prénom')
-      input(type='text', name='nom', placeholder='Nom')
-      input(type='text', name='datenaissance', value='DD/MM/YYYY')
-      input(type='text', name='ville', placeholder='Ville')
-      input(type='text', name='arrondissement', placeholder='Arrondissement (pour Paris)')
-      input(type='text', name='email', placeholder='Email')
-      input(type='text', name='tel', placeholder='numéro de portable')
+      form(method="POST" enctype="multipart/form-data")
+        input(type='text', name='prenom', placeholder='Prénom')
+        input(type='text', name='nom', placeholder='Nom')
+        input(type='text', name='datenaissance', value='DD/MM/YYYY')
+        input(type='text', name='ville', placeholder='Ville')
+        input(type='text', name='arrondissement', placeholder='Arrondissement (pour Paris)')
+        input(type='text', name='email', placeholder='Email')
+        input(type='text', name='tel', placeholder='numéro de portable')
+        button.btn.btn-default(type='submit') Envoyer

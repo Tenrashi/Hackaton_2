@@ -1,0 +1,19 @@
+table(id="products" border="1" width="90%")
+		tr
+			th #
+			th nom du produit 
+			th description
+			th ingrédients
+			th image
+			th catégories
+			th action
+		each perso in infoperso
+			tr
+				td= perso.idinfoperso
+				td= perso.prenom
+				td= perso.nom  
+				td= perso.datenaissance
+				td= perso.ville
+				td= perso.arrondissement
+				td= perso.email
+				td= perso.tel
