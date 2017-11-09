@@ -1,19 +1,14 @@
 extends layout
 
 block content
-  doctype html
-  html
-    head
-      meta(charset='utf-8')
-      link(rel='stylesheet', href='style.css')
-      title Wild Join
-    body
-      form(method="POST" enctype="multipart/form-data")
-        input(type='text', name='prenom', placeholder='Prénom')
-        input(type='text', name='nom', placeholder='Nom')
-        input(type='text', name='datenaissance', value='DD/MM/YYYY')
-        input(type='text', name='ville', placeholder='Ville')
-        input(type='text', name='arrondissement', placeholder='Arrondissement (pour Paris)')
-        input(type='text', name='email', placeholder='Email')
-        input(type='text', name='tel', placeholder='numéro de portable')
-        button.btn.btn-default(type='submit') Envoyer
+  a.btn.btn-warning(role='button' href='/logout') se déconnecter
+  br
+  form(method="POST" enctype="multipart/form-data")
+    input(type='text', name='prenom', placeholder='Prénom')
+    input(type='text', name='nom', placeholder='Nom')
+    input(type='text', name='datenaissance', value='DD/MM/YYYY')
+    input(type='text', name='ville', placeholder='Ville')
+    input(type='text', name='arrondissement', placeholder='Arrondissement (pour Paris)')
+    input(type='text', name='email', placeholder='Email')
+    input(type='text', name='tel', placeholder='numéro de portable')
+    button.btn.btn-default(type='submit') Envoyer
