@@ -8,7 +8,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/', function(req, res, next) {
-  connection.query('insert into infoperso values(null, ?, ?, ?, ?, ?, ?, ?);';)
+  connection.query('insert into infoperso values(null, ?, ?, ?, ?, ?, ?, ?);', [req.body ])
   res.render('index');
 });
 module.exports = router;
