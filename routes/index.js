@@ -8,16 +8,21 @@ const nodemailer = require('nodemailer');
 /* GET home page. */
 
 router.get('/index', function(req, res, next) {
+  if (req.session.connect == true) {
   res.render('index');
+} else {
+  res.redirect('/');
+}
 });
 
 
 router.post('/index', function (req, res, next) {
 // Création d'article
-connection.query('INSERT INTO infoperso VALUES (NULL, ?, ?, ?, ?, ?, ?, ?);', [req.body.nom, req.body.prenom, req.body.anniversaire, req.body.mail, req.body.num, req.body.place, req.body.arrondissement], function (error, results, fields) {
-  
+connection.query('INSERT INTO infoperso VALUES (NULL, ?, ?, ?, ?, ?, ?, ?);',
+[req.body.nom, req.body.prenom, req.body.anniversaire, req.body.mail, req.body.num, req.body.place, req.body.arrondissement], function (error, results, fields) {
+  console.log(req.body);
     if (error) {
-        throw error;
+      res.render('index', {message:'Erreur : Un des champs a mal été rempli', body:req.body});
     } else {
       res.redirect('/base');
     };
@@ -26,7 +31,9 @@ connection.query('INSERT INTO infoperso VALUES (NULL, ?, ?, ?, ?, ?, ?, ?);', [r
 
 router.get('/base', function(req, res, next){
     connection.query('SELECT * FROM infoperso;', function(error, results, fields) {
-      res.render('base', {infoperso:results});
+      if (req.session.connect == true) {
+        res.render('base', {infoperso:results});  
+      }
     });
 });
 
@@ -67,12 +74,10 @@ router.post('/', function (req, res, next) {
 });
 
 router.get("/logout", function(req, res, next) {
-  req.session.connect = false;
+  req.session.destroy();
   res.redirect("/");
 
 });
 
 
 module.exports = router;
-
-
