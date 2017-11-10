@@ -5,11 +5,23 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 const session = require('express-session');
-
+var cool = require('cool-ascii-faces');
 var index = require('./routes/index');
 var users = require('./routes/users');
 
 var app = express();
+
+app.use(express.static(__dirname + '/public'));
+
+
+app.get('/cool', function(request, response) {
+  response.send(cool());
+});
+
+app.listen(app.get('port'), function() {
+  console.log('Node app is running on port', app.get('port'));
+});
+
 
 app.use(session({
   secret: 'keyboard cat',
