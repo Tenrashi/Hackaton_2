@@ -8,7 +8,11 @@ const nodemailer = require('nodemailer');
 /* GET home page. */
 
 router.get('/index', function(req, res, next) {
+  if (req.session.connect == true) {
   res.render('index');
+} else {
+  res.redirect('/');
+}
 });
 
 
@@ -27,7 +31,9 @@ connection.query('INSERT INTO infoperso VALUES (NULL, ?, ?, ?, ?, ?, ?, ?);',
 
 router.get('/base', function(req, res, next){
     connection.query('SELECT * FROM infoperso;', function(error, results, fields) {
-      res.render('base', {infoperso:results});
+      if (req.session.connect == true) {
+        res.render('base', {infoperso:results});  
+      }
     });
 });
 
@@ -68,7 +74,7 @@ router.post('/', function (req, res, next) {
 });
 
 router.get("/logout", function(req, res, next) {
-  req.session.connect = false;
+  req.session.destroy();
   res.redirect("/");
 
 });

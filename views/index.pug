@@ -1,11 +1,21 @@
 extends layout
 
 block content
-  a.btn.btn-warning(role='button' href='/logout') se déconnecter
+  a.btn.btn-primary(role='button' href='/logout') se déconnecter
   br
+  br
+  .row
+    .col-sm-12.text-center
+      img(src='image/deer2.fw.png')
+  br
+  br
+  if message
+    br
+    h2= message
+    br
   section#Inputs
     .row
-      .col-xs-5.col-xs-offset-1.form
+      .col-sm-4.col-sm-offset-4
         form(role='form', method='post')
           .input-group
             input.form-control(type='text', name='nom', placeholder='Nom')
@@ -16,11 +26,8 @@ block content
             input.form-control(type='text', name='place', placeholder='Ville')
             input.form-control(type='text', name='arrondissement', placeholder='Arrondissement (pour paris)')
             button.btn.btn-default(type='submit') Envoyer
-    //- input(type='text', name='nom', placeholder='Nom')
-    //- input(type='text', name='prenom', placeholder='Prénom')
-    //- input(type='text', name='anniversaire', value='DD/MM/YYYY')
-    //- input(type='text', name='mail', placeholder='Email')
-    //- input(type='text', name='num', placeholder='Numéro De Téléphone')
-    //- input(type='text', name='place', placeholder='Ville')
-    //- input(type='text', name='arrondissement', placeholder='Arrondissement (pour paris)')
+  br
+  br
+  a.btn.btn-success(class="btn-base" role='button' href='/base') accéder à la base
+    
         

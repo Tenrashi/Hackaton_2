@@ -1,22 +1,28 @@
-a.btn.btn-warning(role='button' href='/logout') se déconnecter
-br
-table(id="products" border="1" width="90%")
-		tr
-			th #
-			th Nom 
-			th Prenom
-			th Anniversaire
-			th Mail
-			th Numéro
-			th Adresse
-			th Arrondissement
-		each perso in infoperso
+extends layout
+
+block content
+	a.btn.btn-warning(role='button' href='/logout') se déconnecter
+	br
+	
+	br
+	br
+	table(class="table" id="products" border="1" width="90%")
 			tr
-				td= perso.idinfoperso
-				td= perso.nom
-				td= perso.prenom  
-				td= perso.anniversaire
-				td= perso.mail
-				td= perso.num
-				td= perso.place
-				td= perso.arrondissement
+				th #
+				th Nom 
+				th Prenom
+				th Anniversaire
+				th Mail
+				th Numéro
+				th Adresse
+				th Arrondissement
+			each perso in infoperso
+				tr
+					td= perso.idinfoperso
+					td= perso.nom
+					td= perso.prenom  
+					td= perso.anniversaire
+					td= perso.mail
+					td= perso.num
+					td= perso.place
+					td= perso.arrondissement
