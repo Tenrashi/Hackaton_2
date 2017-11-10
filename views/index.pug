@@ -1,14 +1,33 @@
 extends layout
 
 block content
-  a.btn.btn-warning(role='button' href='/logout') se déconnecter
+  a.btn.btn-primary(role='button' href='/logout') se déconnecter
   br
-  form(method="POST")
-    input(type='text', name='nom', placeholder='Nom')
-    input(type='text', name='prenom', placeholder='Prénom')
-    input(type='text', name='anniversaire', value='DD/MM/YYYY')
-    input(type='text', name='mail', placeholder='Email')
-    input(type='text', name='num', placeholder='Numéro De Téléphone')
-    input(type='text', name='place', placeholder='Ville')
-    input(type='text', name='arrondissement', placeholder='Arrondissement (pour paris)')
-    button.btn.btn-default(type='submit') Envoyer
+  br
+  .row
+    .col-sm-12.text-center
+      img(src='image/deer2.fw.png')
+  br
+  br
+  if message
+    br
+    h2= message
+    br
+  section#Inputs
+    .row
+      .col-sm-4.col-sm-offset-4
+        form(role='form', method='post')
+          .input-group
+            input.form-control(type='text', name='nom', placeholder='Nom')
+            input.form-control(type='text', name='prenom', placeholder='Prénom')
+            input.form-control(type='text', name='anniversaire', value='DD/MM/YYYY')
+            input.form-control(type='text', name='mail', placeholder='Email', aria-describedby='basic-addon2')
+            input.form-control(type='text', name='num', placeholder='Numéro de téléphone')
+            input.form-control(type='text', name='place', placeholder='Ville')
+            input.form-control(type='text', name='arrondissement', placeholder='Arrondissement (pour paris)')
+            button.btn.btn-default(type='submit') Envoyer
+  br
+  br
+  a.btn.btn-success(class="btn-base" role='button' href='/base') accéder à la base
+    
+        
