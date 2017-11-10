@@ -13,8 +13,6 @@ var app = express();
 
 app.use(express.static(__dirname + '/public'));
 
-app.set('port', (process.env.PORT || 5000));
-
 app.get('/cool', function(request, response) {
   response.send(cool());
 });
